@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([
+    'prefix' => 'api/',
+], function () {
+
+    // POST zamena
+    Route::post('generate', 'RandomValueController@generate');
+
+    Route::get('retrieve/{requestId?}', 'RandomValueController@retrieve');
+
+});
+
+
+
